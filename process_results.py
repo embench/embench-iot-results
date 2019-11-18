@@ -267,12 +267,6 @@ def output_markdown_line(resdata):
                                      f'| {size["hi"]:7.2f} |\n')
     gparam['readme_newf'].writelines(f'|                             ' +
                                      f'|      ' +
-                                     f'| Size/MHz  ' +
-                                     f'| {size_rel["geomean"]:7.2f} ' +
-                                     f'| {size_rel["lo"]:7.2f} ' +
-                                     f'| {size_rel["hi"]:7.2f} |\n')
-    gparam['readme_newf'].writelines(f'|                             ' +
-                                     f'|      ' +
                                      f'| Speed     ' +
                                      f'| {speed["geomean"]:7.2f} ' +
                                      f'| {speed["lo"]:7.2f} ' +

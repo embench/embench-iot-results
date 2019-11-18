@@ -28,14 +28,12 @@ deviation above.
 | Benchmark name              |  MHz | Type      |   Score |     Low |    High |
 | --------------------------- | ----:|:---------:| -------:| -------:| -------:|
 |                             |      |           |         |         |         |
-| RI5CY GCC speed baseline    |    1 | Size      |    1.00 |    1.00 |    1.00 |
-|                             |      | Size/MHz  |    1.00 |    1.00 |    1.00 |
-|                             |      | Speed     |    1.00 |    1.00 |    1.00 |
-|                             |      | Speed/MHz |    1.00 |    1.00 |    1.00 |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 size optimized |    1 | Size      |    0.98 |    0.94 |    1.02 |
+|                             |      | Speed     |    1.12 |    0.98 |    1.28 |
+|                             |      | Speed/MHz |    1.12 |    0.98 |    1.28 |
 |                             |      |           |         |         |         |
-| RI5CY GCC size baseline     |    1 | Size      |    1.00 |    1.00 |    1.00 |
-|                             |      | Size/MHz  |    1.00 |    1.00 |    1.00 |
-|                             |      | Speed     |    1.00 |    1.00 |    1.00 |
-|                             |      | Speed/MHz |    1.00 |    1.00 |    1.00 |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 speed optimized |    1 | Size      |    1.21 |    1.06 |    1.38 |
+|                             |      | Speed     |    0.99 |    0.96 |    1.02 |
+|                             |      | Speed/MHz |    0.99 |    0.96 |    1.02 |
 
 <!-- Results end here -->
