@@ -29,7 +29,7 @@ from json import loads
 from json.decoder import JSONDecodeError
 
 # Handle for the logger
-logh = logging.getLogger()
+log = logging.getLogger()
 
 # All the global parameters
 gparam = dict()
@@ -101,30 +101,30 @@ def setup_logging(logdir, prefix):
     )
 
     # Set up logging
-    logh.setLevel(logging.DEBUG)
+    log.setLevel(logging.DEBUG)
     cons_h = logging.StreamHandler(sys.stdout)
     cons_h.setLevel(logging.INFO)
-    logh.addHandler(cons_h)
+    log.addHandler(cons_h)
     file_h = logging.FileHandler(logfile)
     file_h.setLevel(logging.DEBUG)
-    logh.addHandler(file_h)
+    log.addHandler(file_h)
 
     # Log where the log file is
-    logh.debug(f'Log file: {logfile}\n')
-    logh.debug('')
+    log.debug(f'Log file: {logfile}\n')
+    log.debug('')
 
 
 def log_args(args):
     """Record all the argument values"""
-    logh.debug('Supplied arguments')
-    logh.debug('==================')
+    log.debug('Supplied arguments')
+    log.debug('==================')
 
     for arg in vars(args):
         realarg = re.sub('_', '-', arg)
         val = getattr(args, arg)
-        logh.debug(f'--{realarg:20}: {val}')
+        log.debug(f'--{realarg:20}: {val}')
 
-    logh.debug('')
+    log.debug('')
 
 
 def validate_resdir(args):
@@ -138,12 +138,12 @@ def validate_resdir(args):
         gparam['resdir'] = os.path.join(gparam['rootdir'], args.resdir)
 
     if not os.path.isdir(gparam['resdir']):
-        logh.error(f'ERROR: Results directory {gparam["resdir"]} not ' +
+        log.error(f'ERROR: Results directory {gparam["resdir"]} not ' +
                    f'found: exiting')
         sys.exit(1)
 
     if not os.access(gparam['resdir'], os.R_OK):
-        logh.error(f'ERROR: Unable to read results directory ' +
+        log.error(f'ERROR: Unable to read results directory ' +
                    f'{gparam["resdir"]}: exiting')
         sys.exit(1)
 
@@ -156,7 +156,7 @@ def validate_resdir(args):
             if os.access(abs_resf, os.R_OK):
                 gparam['resfiles'].add(resf)
             else:
-                logh.warning(f'Warning: Unable to find result file '+
+                log.warning(f'Warning: Unable to find result file '+
                              f'{resf}: ignored')
     else:
         # All results files
@@ -169,7 +169,7 @@ def validate_resdir(args):
                 gparam['resfiles'].add(rootf)
 
     if not gparam['resfiles']:
-        logh.error(f'ERROR: No results files found')
+        log.error(f'ERROR: No results files found')
         sys.exit(1)
 
 def validate_readme(args):
@@ -183,21 +183,21 @@ def validate_readme(args):
         readme_new = os.path.join(gparam['rootdir'], args.new_readme)
 
     if os.path.exists(readme_new) and os.path.samefile(readme_new, readme_old):
-        logh.error(f'ERROR: New README file {readme_new} must differ from '
+        log.error(f'ERROR: New README file {readme_new} must differ from '
                    f'existing file, {readme_old}')
         sys.exit(1)
 
     try:
-        gparam['readme_oldf'] = open(readme_old, "r")
+        gparam['readme_oldf'] = open(readme_old, 'r')
     except OSError as osex:
-        logh.error(f'ERROR: Could not open {readme_old} for reading: ' +
+        log.error(f'ERROR: Could not open {readme_old} for reading: ' +
                    f'{osex.strerror}')
         sys.exit(1)
 
     try:
-        gparam['readme_newf'] = open(readme_new, "w")
+        gparam['readme_newf'] = open(readme_new, 'w')
     except OSError as osex:
-        logh.error(f'ERROR: Could not open {readme_new} for writing: ' +
+        log.error(f'ERROR: Could not open {readme_new} for writing: ' +
                    f'{osex.strerror}')
         sys.exit(1)
 
@@ -219,64 +219,82 @@ def output_markdown_line(resdata):
     """Output a line of a markdown table of results"""
 
     name = resdata['name']
-    clk_rate = resdata['nominal clock rate (MHz)']
+    clk_rate = resdata['platform information']['nominal clock rate (MHz)']
 
-    # Compute the entries
-    size = {
-        'geomean' : resdata['size geometric mean'],
-        'geosd' : resdata['size geometric standard deviation'],
-    }
+    # Compute the size entries
+    if 'size results' in resdata:
+        size = {
+            'geomean' : resdata['size results']['size geometric mean'],
+            'geosd' : resdata['size results']['size geometric standard deviation'],
+        }
 
-    size['lo'] = size['geomean'] / size['geosd']
-    size['hi'] = size['geomean'] * size['geosd']
+        size['lo'] = size['geomean'] / size['geosd']
+        size['hi'] = size['geomean'] * size['geosd']
 
-    size_rel = {
-        'geomean' : size['geomean'] / clk_rate,
-        'geosd' : size['geosd'],
-    }
+    # Compute the speed entries
+    if 'speed results' in resdata:
+        speed = {
+            'geomean' : resdata['speed results']['speed geometric mean'],
+            'geosd' : resdata['speed results']['speed geometric standard deviation'],
+        }
 
-    size_rel['lo'] = size_rel['geomean'] / size_rel['geosd']
-    size_rel['hi'] = size_rel['geomean'] * size_rel['geosd']
+        speed['lo'] = speed['geomean'] / speed['geosd']
+        speed['hi'] = speed['geomean'] * speed['geosd']
 
-    speed = {
-        'geomean' : resdata['speed geometric mean'],
-        'geosd' : resdata['speed geometric standard deviation'],
-    }
+        speed_rel = {
+            'geomean' : speed['geomean'] / clk_rate,
+            'geosd' : speed['geosd'],
+        }
 
-    speed['lo'] = speed['geomean'] / speed['geosd']
-    speed['hi'] = speed['geomean'] * speed['geosd']
-
-    speed_rel = {
-        'geomean' : speed['geomean'] / clk_rate,
-        'geosd' : speed['geosd'],
-    }
-
-    speed_rel['lo'] = speed_rel['geomean'] / speed_rel['geosd']
-    speed_rel['hi'] = speed_rel['geomean'] * speed_rel['geosd']
+        speed_rel['lo'] = speed_rel['geomean'] / speed_rel['geosd']
+        speed_rel['hi'] = speed_rel['geomean'] * speed_rel['geosd']
 
     # Generate the rows
     gparam['readme_newf'].writelines('|                             ' +
                                      '|      ' +
                                      '|           ' +
                                      '|         |         |         |\n')
-    gparam['readme_newf'].writelines(f'| {name:27} ' +
-                                     f'| {clk_rate:4} ' +
-                                     f'| Size      ' +
-                                     f'| {size["geomean"]:7.2f} ' +
-                                     f'| {size["lo"]:7.2f} ' +
-                                     f'| {size["hi"]:7.2f} |\n')
-    gparam['readme_newf'].writelines(f'|                             ' +
-                                     f'|      ' +
-                                     f'| Speed     ' +
-                                     f'| {speed["geomean"]:7.2f} ' +
-                                     f'| {speed["lo"]:7.2f} ' +
-                                     f'| {speed["hi"]:7.2f} |\n')
-    gparam['readme_newf'].writelines(f'|                             ' +
-                                     f'|      ' +
-                                     f'| Speed/MHz ' +
-                                     f'| {speed_rel["geomean"]:7.2f} ' +
-                                     f'| {speed_rel["lo"]:7.2f} ' +
-                                     f'| {speed_rel["hi"]:7.2f} |\n')
+    if 'size results' in resdata:
+        gparam['readme_newf'].writelines(f'| {name:27} ' +
+                                         f'| {clk_rate:4} ' +
+                                         f'| Size      ' +
+                                         f'| {size["geomean"]:7.2f} ' +
+                                         f'| {size["lo"]:7.2f} ' +
+                                         f'| {size["hi"]:7.2f} |\n')
+    else:
+        gparam['readme_newf'].writelines(f'| {name:27} ' +
+                                         f'| {clk_rate:4} ' +
+                                         f'| Size      ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a |\n')
+
+    if 'speed results' in resdata:
+        gparam['readme_newf'].writelines(f'|                             ' +
+                                         f'|      ' +
+                                         f'| Speed     ' +
+                                         f'| {speed["geomean"]:7.2f} ' +
+                                         f'| {speed["lo"]:7.2f} ' +
+                                         f'| {speed["hi"]:7.2f} |\n')
+        gparam['readme_newf'].writelines(f'|                             ' +
+                                         f'|      ' +
+                                         f'| Speed/MHz ' +
+                                         f'| {speed_rel["geomean"]:7.2f} ' +
+                                         f'| {speed_rel["lo"]:7.2f} ' +
+                                         f'| {speed_rel["hi"]:7.2f} |\n')
+    else:
+        gparam['readme_newf'].writelines(f'|                             ' +
+                                         f'|      ' +
+                                         f'| Speed     ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a |\n')
+        gparam['readme_newf'].writelines(f'|                             ' +
+                                         f'|      ' +
+                                         f'| Speed/MHz ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a ' +
+                                         f'|     n/a |\n')
 
 
 def transcribe_results():
@@ -299,15 +317,16 @@ def transcribe_results():
                                      '|:---------:' +
                                      '| -------:| -------:| -------:|\n')
 
+    allres = {}
     for resf in gparam['resfiles']:
         absf = os.path.join(gparam['resdir'], resf + '.json')
         with open(absf) as fileh:
             try:
                 resdata = loads(fileh.read())
-                logh.info(resdata['name'])
+                log.info(resdata['name'])
                 output_markdown_line(resdata)
             except JSONDecodeError as jex:
-                logh.warning(f'Warning: JSON results data error in {resf} '
+                log.warning(f'Warning: JSON results data error in {resf} '
                              f'at line {jex.lineno}, column {jex.colno}: '
                              f'{jex.msg}')
 
@@ -350,7 +369,7 @@ def check_python_version(major, minor):
     if ((sys.version_info[0] < major)
             or ((sys.version_info[0] == major)
                 and (sys.version_info[1] < minor))):
-        logh.error(f'ERROR: Requires Python {major}.{minor} or later')
+        log.error(f'ERROR: Requires Python {major}.{minor} or later')
         sys.exit(1)
 
 

@@ -1,0 +1,166 @@
+{ "name" : "RI5CY RV32I GCC 10.0.0 18-Nov-19 -Os -msave-restore",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 1,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "RV32IMFC",
+    "address size (bits)" : 32,
+    "processor version" : "GitHub commit 300762a",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 64,
+    "data memory size (kB)" : 64,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler" : "gcc 10.0.00 20191118",
+      "linker" : "ld 2.32.51.20191118"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-Os",
+	"-msave-restore",
+	"-march=rv32i",
+	"-mabi=ilp32",
+	"-fdata-sections",
+	"-ffunction-sections"
+      ],
+      "linker" :
+      [ "-march=rv32i",
+	"-mabi=ilp32",
+	"-Wl,-gc-sections"
+      ]
+    }
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.49,
+      "crc32" : 1.58,
+      "cubic" : 1.63,
+      "edn" : 1.58,
+      "huffbench" : 1.48,
+      "matmult-int" : 1.48,
+      "minver" : 1.51,
+      "nbody" : 1.87,
+      "nettle-aes" : 1.22,
+      "nettle-sha256" : 1.18,
+      "nsichneu" : 1.23,
+      "picojpeg" : 1.32,
+      "qrduino" : 1.39,
+      "sglib-combined" : 1.48,
+      "slre" : 1.36,
+      "st" : 1.60,
+      "statemate" : 1.16,
+      "ud" : 1.57,
+      "wikisort" : 1.50
+    },
+    "size geometric mean" : 1.44,
+    "size geometric standard deviation" : 1.13
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.49,
+      "crc32" : 1.58,
+      "cubic" : 1.63,
+      "edn" : 1.58,
+      "huffbench" : 1.48,
+      "matmult-int" : 1.48,
+      "minver" : 1.51,
+      "nbody" : 1.87,
+      "nettle-aes" : 1.22,
+      "nettle-sha256" : 1.18,
+      "nsichneu" : 1.23,
+      "picojpeg" : 1.32,
+      "qrduino" : 1.39,
+      "sglib-combined" : 1.48,
+      "slre" : 1.36,
+      "st" : 1.60,
+      "statemate" : 1.16,
+      "ud" : 1.57,
+      "wikisort" : 1.50
+    },
+    "size geometric mean" : 1.44,
+    "size geometric standard deviation" : 1.13
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.49,
+      "crc32" : 1.58,
+      "cubic" : 1.63,
+      "edn" : 1.58,
+      "huffbench" : 1.48,
+      "matmult-int" : 1.48,
+      "minver" : 1.51,
+      "nbody" : 1.87,
+      "nettle-aes" : 1.22,
+      "nettle-sha256" : 1.18,
+      "nsichneu" : 1.23,
+      "picojpeg" : 1.32,
+      "qrduino" : 1.39,
+      "sglib-combined" : 1.48,
+      "slre" : 1.36,
+      "st" : 1.60,
+      "statemate" : 1.16,
+      "ud" : 1.57,
+      "wikisort" : 1.50
+    },
+    "size geometric mean" : 1.44,
+    "size geometric standard deviation" : 1.13
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.49,
+      "crc32" : 1.58,
+      "cubic" : 1.63,
+      "edn" : 1.58,
+      "huffbench" : 1.48,
+      "matmult-int" : 1.48,
+      "minver" : 1.51,
+      "nbody" : 1.87,
+      "nettle-aes" : 1.22,
+      "nettle-sha256" : 1.18,
+      "nsichneu" : 1.23,
+      "picojpeg" : 1.32,
+      "qrduino" : 1.39,
+      "sglib-combined" : 1.48,
+      "slre" : 1.36,
+      "st" : 1.60,
+      "statemate" : 1.16,
+      "ud" : 1.57,
+      "wikisort" : 1.50
+    },
+    "size geometric mean" : 1.44,
+    "size geometric standard deviation" : 1.13
+  },
+  "speed results" :
+  { "detailed speed results" :
+    { "aha-mont64" : 0.38,
+      "crc32" : 0.09,
+      "cubic" : 1.01,
+      "edn" : 0.04,
+      "huffbench" : 0.87,
+      "matmult-int" : 0.09,
+      "minver" : 0.91,
+      "nbody" : 1.00,
+      "nettle-aes" : 0.89,
+      "nettle-sha256" : 1.02,
+      "nsichneu" : 1.17,
+      "picojpeg" : 0.65,
+      "qrduino" : 0.46,
+      "sglib-combined" : 0.75,
+      "slre" : 0.71,
+      "st" : 0.94,
+      "statemate" : 0.88,
+      "ud" : 0.54,
+      "wikisort" : 0.78
+    },
+    "speed geometric mean" : 0.53,
+    "speed geometric standard deviation" : 2.56
+  }
+}
