@@ -20,7 +20,8 @@
   "tool chain information" :
   { "tool chain version" :
     { "compiler" : "gcc 10.0.00 20191118",
-      "linker" : "ld 2.32.51.20191118"
+      "linker" : "ld 2.32.51.20191118",
+      "C library" : "newlib commit edb1be4cc 20191116"
     },
     "tool chain flags" :
     { "compiler" :
