@@ -28,9 +28,65 @@ deviation above.
 | Benchmark name              |  MHz | Type      |   Score |     Low |    High |
 | --------------------------- | ----:|:---------:| -------:| -------:| -------:|
 |                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O3 with unrolling/inlining |    1 | Size      |    2.94 |    1.67 |    5.17 |
+|                             |      | Speed     |    1.20 |    0.94 |    1.52 |
+|                             |      | Speed/MHz |    1.20 |    0.94 |    1.52 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 9.2 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.01 |    0.97 |    1.05 |
+|                             |      | Speed     |    0.95 |    0.83 |    1.08 |
+|                             |      | Speed/MHz |    0.95 |    0.83 |    1.08 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 8.2 18-Nov-19 -O2 |    1 | Size      |    1.22 |    1.08 |    1.38 |
+|                             |      | Speed     |    1.04 |    0.95 |    1.14 |
+|                             |      | Speed/MHz |    1.04 |    0.95 |    1.14 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    0.98 |    0.94 |    1.02 |
+|                             |      | Speed     |    0.89 |    0.78 |    1.01 |
+|                             |      | Speed/MHz |    0.89 |    0.78 |    1.01 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 8.3 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.01 |    0.96 |    1.06 |
+|                             |      | Speed     |    0.95 |    0.83 |    1.08 |
+|                             |      | Speed/MHz |    0.95 |    0.83 |    1.08 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 8.2 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.02 |    0.97 |    1.07 |
+|                             |      | Speed     |    0.95 |    0.83 |    1.08 |
+|                             |      | Speed/MHz |    0.95 |    0.83 |    1.08 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.2 18-Nov-19 -O2 |    1 | Size      |    1.20 |    1.06 |    1.36 |
+|                             |      | Speed     |    1.04 |    0.94 |    1.15 |
+|                             |      | Speed/MHz |    1.04 |    0.94 |    1.15 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.21 |    1.06 |    1.38 |
+|                             |      | Speed     |    1.01 |    0.98 |    1.04 |
+|                             |      | Speed/MHz |    1.01 |    0.98 |    1.04 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.21 |    1.06 |    1.38 |
+|                             |      | Speed     |    1.01 |    0.98 |    1.04 |
+|                             |      | Speed/MHz |    1.01 |    0.98 |    1.04 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 8.3 18-Nov-19 -O2 |    1 | Size      |    1.22 |    1.08 |    1.38 |
+|                             |      | Speed     |    1.03 |    0.94 |    1.13 |
+|                             |      | Speed/MHz |    1.03 |    0.94 |    1.13 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 8.1 18-Nov-19 -O2 |    1 | Size      |    1.22 |    1.08 |    1.38 |
+|                             |      | Speed     |    1.04 |    0.95 |    1.14 |
+|                             |      | Speed/MHz |    1.04 |    0.95 |    1.14 |
+|                             |      |           |         |         |         |
 | RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O3 with some inlining |    1 | Size      |    1.67 |    1.13 |    2.47 |
 |                             |      | Speed     |    1.10 |    0.85 |    1.42 |
 |                             |      | Speed/MHz |    1.10 |    0.85 |    1.42 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.5 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.02 |    0.97 |    1.07 |
+|                             |      | Speed     |    0.94 |    0.82 |    1.07 |
+|                             |      | Speed/MHz |    0.94 |    0.82 |    1.07 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.2 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.01 |    0.95 |    1.07 |
+|                             |      | Speed     |    0.94 |    0.82 |    1.07 |
+|                             |      | Speed/MHz |    0.94 |    0.82 |    1.07 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.4 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.02 |    0.96 |    1.08 |
+|                             |      | Speed     |    0.94 |    0.82 |    1.08 |
+|                             |      | Speed/MHz |    0.94 |    0.82 |    1.08 |
 |                             |      |           |         |         |         |
 | RI5CY RV32I GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.44 |    1.27 |    1.63 |
 |                             |      | Speed     |    0.53 |    0.21 |    1.36 |
@@ -40,21 +96,57 @@ deviation above.
 |                             |      | Speed     |    0.93 |    0.85 |    1.01 |
 |                             |      | Speed/MHz |    0.93 |    0.85 |    1.01 |
 |                             |      |           |         |         |         |
-| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O3 with unrolling/inlining |    1 | Size      |    2.94 |    1.67 |    5.17 |
-|                             |      | Speed     |    1.20 |    0.94 |    1.52 |
-|                             |      | Speed/MHz |    1.20 |    0.94 |    1.52 |
+| RI5CY RV32I GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.83 |    1.49 |    2.25 |
+|                             |      | Speed     |    0.67 |    0.28 |    1.59 |
+|                             |      | Speed/MHz |    0.67 |    0.28 |    1.59 |
 |                             |      |           |         |         |         |
-| RI5CY RV32IM GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.40 |    1.25 |    1.57 |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    0.98 |    0.94 |    1.02 |
 |                             |      | Speed     |    0.90 |    0.79 |    1.03 |
 |                             |      | Speed/MHz |    0.90 |    0.79 |    1.03 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.5 18-Nov-19 -O2 |    1 | Size      |    1.19 |    1.05 |    1.34 |
+|                             |      | Speed     |    1.04 |    0.94 |    1.15 |
+|                             |      | Speed/MHz |    1.04 |    0.94 |    1.15 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.1 18-Nov-19 -O2 |    1 | Size      |    1.20 |    1.06 |    1.36 |
+|                             |      | Speed     |    1.04 |    0.94 |    1.15 |
+|                             |      | Speed/MHz |    1.04 |    0.94 |    1.15 |
 |                             |      |           |         |         |         |
 | RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.21 |    1.06 |    1.38 |
 |                             |      | Speed     |    1.01 |    0.98 |    1.04 |
 |                             |      | Speed/MHz |    1.01 |    0.98 |    1.04 |
 |                             |      |           |         |         |         |
-| RI5CY RV32I GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.83 |    1.49 |    2.25 |
-|                             |      | Speed     |    0.67 |    0.28 |    1.59 |
-|                             |      | Speed/MHz |    0.67 |    0.28 |    1.59 |
+| RI5CY RV32IMC GCC 8.1 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.02 |    0.97 |    1.07 |
+|                             |      | Speed     |    0.95 |    0.83 |    1.08 |
+|                             |      | Speed/MHz |    0.95 |    0.83 |    1.08 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 7.3 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.02 |    0.96 |    1.08 |
+|                             |      | Speed     |    0.94 |    0.82 |    1.07 |
+|                             |      | Speed/MHz |    0.94 |    0.82 |    1.07 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 9.1 18-Nov-19 -O2 |    1 | Size      |    1.22 |    1.09 |    1.37 |
+|                             |      | Speed     |    1.05 |    0.95 |    1.16 |
+|                             |      | Speed/MHz |    1.05 |    0.95 |    1.16 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 9.1 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.01 |    0.97 |    1.05 |
+|                             |      | Speed     |    0.95 |    0.83 |    1.08 |
+|                             |      | Speed/MHz |    0.95 |    0.83 |    1.08 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IM GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.72 |    1.45 |    2.05 |
+|                             |      | Speed     |    1.02 |    1.00 |    1.04 |
+|                             |      | Speed/MHz |    1.02 |    1.00 |    1.04 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IM GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.40 |    1.25 |    1.57 |
+|                             |      | Speed     |    0.90 |    0.79 |    1.03 |
+|                             |      | Speed/MHz |    0.90 |    0.79 |    1.03 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 9.2 18-Nov-19 -O2 |    1 | Size      |    1.22 |    1.09 |    1.37 |
+|                             |      | Speed     |    1.05 |    0.95 |    1.16 |
+|                             |      | Speed/MHz |    1.05 |    0.95 |    1.16 |
+|                             |      |           |         |         |         |
+| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O0 |    1 | Size      |    2.32 |    1.86 |    2.90 |
+|                             |      | Speed     |    0.48 |    0.30 |    0.76 |
+|                             |      | Speed/MHz |    0.48 |    0.30 |    0.76 |
 |                             |      |           |         |         |         |
 | RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O3 |    1 | Size      |    1.68 |    1.13 |    2.50 |
 |                             |      | Speed     |    1.10 |    0.85 |    1.42 |
@@ -64,24 +156,20 @@ deviation above.
 |                             |      | Speed     |    0.91 |    0.81 |    1.02 |
 |                             |      | Speed/MHz |    0.91 |    0.81 |    1.02 |
 |                             |      |           |         |         |         |
-| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O0 |    1 | Size      |    2.32 |    1.86 |    2.90 |
-|                             |      | Speed     |    0.48 |    0.30 |    0.76 |
-|                             |      | Speed/MHz |    0.48 |    0.30 |    0.76 |
+| RI5CY RV32IMC GCC 7.4 18-Nov-19 -O2 |    1 | Size      |    1.20 |    1.06 |    1.36 |
+|                             |      | Speed     |    1.04 |    0.94 |    1.15 |
+|                             |      | Speed/MHz |    1.04 |    0.94 |    1.15 |
 |                             |      |           |         |         |         |
-| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    0.98 |    0.94 |    1.02 |
-|                             |      | Speed     |    0.89 |    0.78 |    1.01 |
-|                             |      | Speed/MHz |    0.89 |    0.78 |    1.01 |
-|                             |      |           |         |         |         |
-| RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.21 |    1.06 |    1.38 |
-|                             |      | Speed     |    1.01 |    0.98 |    1.04 |
-|                             |      | Speed/MHz |    1.01 |    0.98 |    1.04 |
+| RI5CY RV32IMC GCC 7.1 18-Nov-19 -Os -msave-restore |    1 | Size      |    1.01 |    0.95 |    1.07 |
+|                             |      | Speed     |    0.94 |    0.82 |    1.07 |
+|                             |      | Speed/MHz |    0.94 |    0.82 |    1.07 |
 |                             |      |           |         |         |         |
 | RI5CY RV32IMC GCC 10.0.0 18-Nov-19 -Os -msave-restore |    1 | Size      |    0.98 |    0.94 |    1.02 |
 |                             |      | Speed     |    0.90 |    0.79 |    1.03 |
 |                             |      | Speed/MHz |    0.90 |    0.79 |    1.03 |
 |                             |      |           |         |         |         |
-| RI5CY RV32IM GCC 10.0.0 18-Nov-19 -O2 |    1 | Size      |    1.72 |    1.45 |    2.05 |
-|                             |      | Speed     |    1.02 |    1.00 |    1.04 |
-|                             |      | Speed/MHz |    1.02 |    1.00 |    1.04 |
+| RI5CY RV32IMC GCC 7.3 18-Nov-19 -O2 |    1 | Size      |    1.20 |    1.06 |    1.36 |
+|                             |      | Speed     |    1.04 |    0.94 |    1.15 |
+|                             |      | Speed/MHz |    1.04 |    0.94 |    1.15 |
 
 <!-- Results end here -->
