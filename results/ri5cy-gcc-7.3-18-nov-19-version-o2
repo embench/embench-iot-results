@@ -1,0 +1,91 @@
+{ "name" : "RI5CY RV32IMC GCC 7.3 18-Nov-19 -O2",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 1,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "RV32IMFC",
+    "address size (bits)" : 32,
+    "processor version" : "GitHub commit 300762a",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 64,
+    "data memory size (kB)" : 64,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler" : "gcc commmit/tag gcc-7_3_0-release",
+      "linker" : "ld commit/tag binutils-2_29_1.1",
+      "C library" : "newlib commit/tag newlib-3.0.0"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-O2",
+	"-march=rv32imc",
+	"-mabi=ilp32",
+	"-fdata-sections",
+	"-ffunction-sections"
+      ],
+      "linker" :
+      [ "-march=rv32imc",
+	"-mabi=ilp32",
+	"-Wl,-gc-sections"
+      ]
+    }
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.62,
+      "crc32" : 1.05,
+      "cubic" : 1.11,
+      "edn" : 1.08,
+      "huffbench" : 1.13,
+      "matmult-int" : 1.01,
+      "minver" : 1.22,
+      "nbody" : 1.32,
+      "nettle-aes" : 1.13,
+      "nettle-sha256" : 1.04,
+      "nsichneu" : 1.09,
+      "picojpeg" : 1.49,
+      "qrduino" : 1.40,
+      "sglib-combined" : 1.18,
+      "slre" : 1.28,
+      "st" : 1.25,
+      "statemate" : 1.13,
+      "ud" : 1.15,
+      "wikisort" : 1.18
+    },
+    "size geometric mean" : 1.20,
+    "size geometric standard deviation" : 1.13
+  },
+  "speed results" :
+  { "detailed speed results" :
+    { "aha-mont64" : 1.00,
+      "crc32" : 0.96,
+      "cubic" : 0.97,
+      "edn" : 1.03,
+      "huffbench" : 1.20,
+      "matmult-int" : 1.00,
+      "minver" : 0.97,
+      "nbody" : 0.97,
+      "nettle-aes" : 0.98,
+      "nettle-sha256" : 1.14,
+      "nsichneu" : 1.02,
+      "picojpeg" : 1.01,
+      "qrduino" : 1.00,
+      "sglib-combined" : 1.04,
+      "slre" : 0.95,
+      "st" : 0.95,
+      "statemate" : 1.46,
+      "ud" : 0.98,
+      "wikisort" : 1.19
+    },
+    "speed geometric mean" : 1.04,
+    "speed geometric standard deviation" : 1.11
+  }
+}
