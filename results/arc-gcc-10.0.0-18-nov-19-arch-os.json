@@ -1,0 +1,63 @@
+{ "name" : "ARC EM GCC 10.0.0 18-Nov-19 -Os",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 1,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "ARC EM (no code density)",
+    "address size (bits)" : 32,
+    "processor version" : "n/a",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 64,
+    "data memory size (kB)" : 64,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler" : "gcc 10.0.00 20191118",
+      "linker" : "ld 2.32.51.20191118",
+      "C library" : "newlib commit edb1be4cc 20191116"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-Os",
+	"-mcpu=em",
+	"-fdata-sections",
+	"-ffunction-sections"
+      ],
+      "linker" :
+      [ "-Wl,-gc-sections"
+      ]
+    }
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 1.46,
+      "crc32" : 1.32,
+      "cubic" : 0.75,
+      "edn" : 1.38,
+      "huffbench" : 1.01,
+      "matmult-int" : 1.66,
+      "minver" : 1.31,
+      "nbody" : 1.64,
+      "nettle-aes" : 1.57,
+      "nettle-sha256" : 2.20,
+      "nsichneu" : 0.86,
+      "picojpeg" : 1.20,
+      "qrduino" : 1.11,
+      "sglib-combined" : 1.24,
+      "slre" : 1.05,
+      "st" : 1.45,
+      "statemate" : 1.53,
+      "ud" : 1.58,
+      "wikisort" : 1.10
+    },
+    "size geometric mean" : 1.30,
+    "size geometric standard deviation" : 1.28
+  }
+}
