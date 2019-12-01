@@ -1,0 +1,65 @@
+{ "name" : "ARM Cortex M4 Thumb2 GCC 4.9.4 -Os",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 1,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "ARMv7",
+    "address size (bits)" : 32,
+    "processor version" : "n/a",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 64,
+    "data memory size (kB)" : 64,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler" : "gcc tag gcc-4_9_4-release",
+      "linker" : "ld tag binutils-2_27",
+      "C library" : "newlib tag newlib-2_4_0"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-Os",
+	"-mcpu=cortex-m4",
+	"-mthumb",
+	"-mfloat-abi=soft",
+	"-fdata-sections",
+	"-ffunction-sections"
+      ],
+      "linker" :
+      [ "-Wl,-gc-sections"
+      ]
+    }
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 0.99,
+      "crc32" : 0.92,
+      "cubic" : 0.63,
+      "edn" : 0.83,
+      "huffbench" : 0.71,
+      "matmult-int" : 0.97,
+      "minver" : 1.00,
+      "nbody" : 1.23,
+      "nettle-aes" : 0.80,
+      "nettle-sha256" : 0.60,
+      "nsichneu" : 1.03,
+      "picojpeg" : 0.91,
+      "qrduino" : 0.96,
+      "sglib-combined" : 0.93,
+      "slre" : 0.94,
+      "st" : 1.05,
+      "statemate" : 1.22,
+      "ud" : 0.92,
+      "wikisort" : 1.03
+    },
+    "size geometric mean" : 0.92,
+    "size geometric standard deviation" : 1.20
+  }
+}
