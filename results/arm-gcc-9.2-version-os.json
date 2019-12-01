@@ -36,5 +36,30 @@
       [ "-Wl,-gc-sections"
       ]
     }
+  },
+  "size results" :
+  { "detailed size results" :
+    { "aha-mont64" : 0.97,
+      "crc32" : 0.92,
+      "cubic" : 0.62,
+      "edn" : 0.87,
+      "huffbench" : 0.73,
+      "matmult-int" : 1.00,
+      "minver" : 1.04,
+      "nbody" : 1.24,
+      "nettle-aes" : 0.72,
+      "nettle-sha256" : 0.60,
+      "nsichneu" : 1.03,
+      "picojpeg" : 0.89,
+      "qrduino" : 0.96,
+      "sglib-combined" : 0.96,
+      "slre" : 0.88,
+      "st" : 1.05,
+      "statemate" : 1.20,
+      "ud" : 0.92,
+      "wikisort" : 1.00
+    },
+    "size geometric mean" : 0.91,
+    "size geometric standard deviation" : 1.21
   }
 }
