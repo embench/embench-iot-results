@@ -1,4 +1,4 @@
-{ "name" : "RI5CY RV32IMC LLVM master 8-Oct-19 -Oz",
+{ "name" : "RI5CY RV32IMC LLVM master 8-Oct-19 -O3 with unrolling/inlining",
   "platform information" :
   { "nominal clock rate (MHz)" : 1,
     "max clock rate (MHz)" : "n/a",
@@ -25,7 +25,10 @@
     },
     "tool chain flags" :
     { "compiler" :
-      [ "-Oz",
+      [ "-O3",
+	"-funroll-all-loops",
+	"-finline-functions",
+	"-finline-limit=200",
 	"-march=rv32imc",
 	"-mabi=ilp32",
 	"-fdata-sections",
