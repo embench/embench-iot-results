@@ -1,0 +1,226 @@
+== CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections ==
+
+{| class="wikitable sortable"
+|- align="left"
+| Embench version || 0.5
+|- align="left"
+| architecture family || Arm
+|- align="left"
+| date/time || 2020-04-24 11:27:00+01:00
+|}
+
+== Platform information ==
+
+{| class="wikitable sortable"
+|- align="left"
+| nominal clock rate (MHz) || 16
+|- align="left"
+| max clock rate (MHz) || n/a
+|- align="left"
+| isa || THUMB
+|- align="left"
+| address size (bits) || 32
+|- align="left"
+| processor name || Cortex M4
+|- align="left"
+| processor version || STM32F407VGT6 microcontroller
+|- align="left"
+| number of enabled cores || 1
+|- align="left"
+| hardware threads per core || 1
+|- align="left"
+| caches || n/a
+|- align="left"
+| thermal design power || n/a
+|- align="left"
+| program memory size (kB) || 1024
+|- align="left"
+| data memory size (kB) || 192
+|- align="left"
+| storage || n/a
+|- align="left"
+| external memory || n/a
+|- align="left"
+| external buses || n/a
+|- align="left"
+| misc accellerators and I/O devices || n/a
+|- align="left"
+| OS and version || Bare metal
+|}
+
+== Tool chain information ==
+
+=== Tool chain versions ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler version || gcc 9.2.0
+|- align="left"
+| compiler configuration || --target=arm-none-eabi --disable-shared --enable-static --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-xmlto=no --with-fop=no --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --enable-target-optspace --disable-libsanitizer --disable-tls --disable-libmudflap --disable-threads --disable-libquadmath --disable-libgomp --without-isl --without-cloog --disable-decimal-float --enable-languages=c --with-newlib --disable-largefile --enable-plugins --disable-nls --enable-checking=yes  --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft
+|- align="left"
+| linker version || GNU binutils ld 2.33.1
+|- align="left"
+| linker configuration || --target=arm-none-eabi --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-fop=no --disable-multilib --enable-plugins --enable-poison-system-directories --disable-tls --disable-sim
+|- align="left"
+| C library version || newlib 3.3.0
+|- align="left"
+| C library configuration || --target=arm-none-eabi --disable-newlib-fvwrite-in-streamio --disable-newlib-fseek-optimization --enable-newlib-nano-malloc --disable-newlib-unbuf-stream-opt --enable-target-optspace --enable-newlib-reent-small --disable-newlib-wide-orient --disable-newlib-io-float --enable-newlib-nano-formatted-io --enable-lite-exit --disable-newlib-supplied-syscalls CFLAGS_FOR_TARGET= -DHAVE_GNU_LD -DPREFER_SIZE_OVER_SPEED=1 -Os --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft
+|}
+
+=== Tool chain flags used in benchmarking ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler || -Os -march=armv7-m -mcpu=cortex-m4 -mfloat-abi=soft -mthumb -ffunction-sections
+|- align="left"
+| linker || -Wl,-gc-sections -nostartfiles -nostdlib
+|}
+
+=== Other tool chain information ===
+
+{| class="wikitable sortable"
+|- align="left"
+| libs || {'dummy libs': ['crt0', 'libc', 'libgcc', 'libm']}
+|}
+
+== Detailed Embench results ==
+
+Section types included in size data: text
+{| class="wikitable sortable"
+! align="left"  |
+! colspan="2" align="center" | Size
+! colspan="2" align="center" | Speed/MHz
+|- align="left"
+! align="left" | Benchmark
+! align="right"  | Absolute
+! align="right" | Relative
+! align="right"  | Absolute
+! align="right" | Relative
+|- align="left"
+| aha-mont64
+| align="right" | 1,072
+| align="right" | 1.00
+| align="right" | 4,361
+| align="right" | 0.92
+|- align="left"
+| crc32
+| align="right" | 284
+| align="right" | 1.00
+| align="right" | 4,010
+| align="right" | 1.00
+|- align="left"
+| cubic
+| align="right" | 1,584
+| align="right" | 1.00
+| align="right" | 3,932
+| align="right" | 1.00
+|- align="left"
+| edn
+| align="right" | 1,324
+| align="right" | 1.00
+| align="right" | 4,373
+| align="right" | 0.92
+|- align="left"
+| huffbench
+| align="right" | 1,242
+| align="right" | 1.00
+| align="right" | 4,844
+| align="right" | 0.85
+|- align="left"
+| matmult-int
+| align="right" | 492
+| align="right" | 1.00
+| align="right" | 5,419
+| align="right" | 0.74
+|- align="left"
+| minver
+| align="right" | 1,168
+| align="right" | 1.00
+| align="right" | 4,360
+| align="right" | 0.92
+|- align="left"
+| nbody
+| align="right" | 950
+| align="right" | 1.00
+| align="right" | 2,810
+| align="right" | 1.00
+|- align="left"
+| nettle-aes
+| align="right" | 2,148
+| align="right" | 1.00
+| align="right" | 6,753
+| align="right" | 0.60
+|- align="left"
+| nettle-sha256
+| align="right" | 3,396
+| align="right" | 1.00
+| align="right" | 3,793
+| align="right" | 1.05
+|- align="left"
+| nsichneu
+| align="right" | 11,968
+| align="right" | 1.00
+| align="right" | 3,699
+| align="right" | 1.08
+|- align="left"
+| picojpeg
+| align="right" | 6,964
+| align="right" | 1.00
+| align="right" | 5,111
+| align="right" | 0.79
+|- align="left"
+| qrduino
+| align="right" | 5,814
+| align="right" | 1.00
+| align="right" | 4,505
+| align="right" | 0.94
+|- align="left"
+| sglib-combined
+| align="right" | 2,272
+| align="right" | 1.00
+| align="right" | 4,650
+| align="right" | 0.86
+|- align="left"
+| slre
+| align="right" | 2,200
+| align="right" | 1.00
+| align="right" | 4,910
+| align="right" | 0.82
+|- align="left"
+| st
+| align="right" | 1,000
+| align="right" | 1.00
+| align="right" | 4,111
+| align="right" | 0.99
+|- align="left"
+| statemate
+| align="right" | 4,484
+| align="right" | 1.00
+| align="right" | 4,044
+| align="right" | 0.99
+|- align="left"
+| ud
+| align="right" | 720
+| align="right" | 1.00
+| align="right" | 5,192
+| align="right" | 0.77
+|- align="left"
+| wikisort
+| align="right" | 4,296
+| align="right" | 1.00
+| align="right" | 2,785
+| align="right" | 1.00
+|- align="left"
+! Geometric mean
+!
+! align="right" | 1.00
+!
+! align="right" | 0.90
+|- align="left"
+! Geometric standard deviation
+!
+! align="right" | 1.00
+!
+! align="right" | 1.15
+|}
+

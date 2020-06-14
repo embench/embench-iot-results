@@ -17,364 +17,89 @@ Data are held in files in the results directory of the form
 <arch>-<description>.json.  Each defines a set of results in a JSON file.
 """
 
-
-import argparse
-import logging
-import os
-import re
+# System packages
+import os.path
 import sys
-import time
 
-from json import loads
-from json.decoder import JSONDecodeError
-
-# Handle for the logger
-log = logging.getLogger()
-
-# All the global parameters
-gparam = dict()
-
-
-def build_parser():
-    """Build a parser for all the arguments"""
-    parser = argparse.ArgumentParser(description='Collate benchmark results')
-
-    parser.add_argument(
-        '--resdir',
-        type=str,
-        default='results',
-        help='Directory holding the results files',
-    )
-    parser.add_argument(
-        '--logdir',
-        type=str,
-        default='logs',
-        help='Directory in which to store logs',
-    )
-    parser.add_argument(
-        '--new-readme',
-        type=str,
-        default='README-new.md',
-        help='Where to write the new README.md',
-    )
-    parser.add_argument(
-        'resfiles',
-        metavar='result-file',
-        type=str,
-        nargs='*',
-        help='Specific results files to accumulate',
-    )
-
-    return parser
-
-
-def create_logdir(logdir):
-    """Create the log directory, which can be relative to the root directory
-       or absolute"""
-    if not os.path.isabs(logdir):
-        logdir = os.path.join(gparam['rootdir'], logdir)
-
-    if not os.path.isdir(logdir):
-        try:
-            os.makedirs(logdir)
-        except PermissionError:
-            raise PermissionError(f'Unable to create log directory {logdir}')
-
-    if not os.access(logdir, os.W_OK):
-        raise PermissionError(f'Unable to write to log directory {logdir}')
-
-    return logdir
-
-
-def setup_logging(logdir, prefix):
-    """Set up logging in the directory specified by "logdir".
-
-       The log file name is the "prefix" argument followed by a timestamp.
-
-       Debug messages only go to file, everything else also goes to the
-       console."""
-
-    # Create the log directory first if necessary.
-    logdir_abs = create_logdir(logdir)
-    logfile = os.path.join(
-        logdir_abs, time.strftime(f'{prefix}-%Y-%m-%d-%H%M%S.log')
-    )
-
-    # Set up logging
-    log.setLevel(logging.DEBUG)
-    cons_h = logging.StreamHandler(sys.stdout)
-    cons_h.setLevel(logging.INFO)
-    log.addHandler(cons_h)
-    file_h = logging.FileHandler(logfile)
-    file_h.setLevel(logging.DEBUG)
-    log.addHandler(file_h)
-
-    # Log where the log file is
-    log.debug(f'Log file: {logfile}\n')
-    log.debug('')
-
-
-def log_args(args):
-    """Record all the argument values"""
-    log.debug('Supplied arguments')
-    log.debug('==================')
-
-    for arg in vars(args):
-        realarg = re.sub('_', '-', arg)
-        val = getattr(args, arg)
-        log.debug(f'--{realarg:20}: {val}')
-
-    log.debug('')
-
-
-def validate_resdir(args):
-    """Check the details of the results directory are OK and enumerate the
-       files."""
-
-    # Check the directory
-    if os.path.isabs(args.resdir):
-        gparam['resdir'] = args.resdir
-    else:
-        gparam['resdir'] = os.path.join(gparam['rootdir'], args.resdir)
-
-    if not os.path.isdir(gparam['resdir']):
-        log.error(f'ERROR: Results directory {gparam["resdir"]} not ' +
-                   f'found: exiting')
-        sys.exit(1)
-
-    if not os.access(gparam['resdir'], os.R_OK):
-        log.error(f'ERROR: Unable to read results directory ' +
-                   f'{gparam["resdir"]}: exiting')
-        sys.exit(1)
-
-    # Enumerate the files
-    gparam['resfiles'] = set()
-    if args.resfiles:
-        # Specific results files
-        for resf in args.resfiles:
-            abs_resf = os.path.join(gparam['resdir'], resf + '.json')
-            if os.access(abs_resf, os.R_OK):
-                gparam['resfiles'].add(resf)
-            else:
-                log.warning(f'Warning: Unable to find result file '+
-                             f'{resf}: ignored')
-    else:
-        # All results files
-        dirlist = os.listdir(gparam['resdir'])
-        for resf in dirlist:
-            rootf, suffix = os.path.splitext(resf)
-            abs_resf = os.path.join(gparam['resdir'], resf)
-            if (suffix == '.json' and os.path.isfile(abs_resf) and
-                    os.access(abs_resf, os.R_OK)):
-                gparam['resfiles'].add(rootf)
-
-    if not gparam['resfiles']:
-        log.error(f'ERROR: No results files found')
-        sys.exit(1)
-
-def validate_readme(args):
-    """Check the README files are OK."""
-
-    readme_old = os.path.join(gparam['rootdir'], 'README.md')
-
-    if os.path.isabs(args.new_readme):
-        readme_new = args.new_readme
-    else:
-        readme_new = os.path.join(gparam['rootdir'], args.new_readme)
-
-    if os.path.exists(readme_new) and os.path.samefile(readme_new, readme_old):
-        log.error(f'ERROR: New README file {readme_new} must differ from '
-                   f'existing file, {readme_old}')
-        sys.exit(1)
-
-    try:
-        gparam['readme_oldf'] = open(readme_old, 'r')
-    except OSError as osex:
-        log.error(f'ERROR: Could not open {readme_old} for reading: ' +
-                   f'{osex.strerror}')
-        sys.exit(1)
-
-    try:
-        gparam['readme_newf'] = open(readme_new, 'w')
-    except OSError as osex:
-        log.error(f'ERROR: Could not open {readme_new} for writing: ' +
-                   f'{osex.strerror}')
-        sys.exit(1)
-
-
-def validate_args(args):
-    """Check that supplied args are all valid. By definition logging is
-       working when we get here.
-
-       Update the gparam dictionary with all the useful info"""
-
-    # Validate the results directory
-    validate_resdir(args)
-
-    # Sort out the README file
-    validate_readme(args)
-
-
-def output_markdown_line(resdata):
-    """Output a line of a markdown table of results"""
-
-    name = resdata['name']
-    clk_rate = resdata['platform information']['nominal clock rate (MHz)']
-
-    # Compute the size entries
-    if 'size results' in resdata:
-        size = {
-            'geomean' : resdata['size results']['size geometric mean'],
-            'geosd' : resdata['size results']['size geometric standard deviation'],
-        }
-
-        size['lo'] = size['geomean'] / size['geosd']
-        size['hi'] = size['geomean'] * size['geosd']
-
-    # Compute the speed entries
-    if 'speed results' in resdata:
-        speed = {
-            'geomean' : resdata['speed results']['speed geometric mean'],
-            'geosd' : resdata['speed results']['speed geometric standard deviation'],
-        }
-
-        speed['lo'] = speed['geomean'] / speed['geosd']
-        speed['hi'] = speed['geomean'] * speed['geosd']
-
-        speed_rel = {
-            'geomean' : speed['geomean'] / clk_rate,
-            'geosd' : speed['geosd'],
-        }
-
-        speed_rel['lo'] = speed_rel['geomean'] / speed_rel['geosd']
-        speed_rel['hi'] = speed_rel['geomean'] * speed_rel['geosd']
-
-    # Generate the rows
-    gparam['readme_newf'].writelines('|                             ' +
-                                     '|      ' +
-                                     '|           ' +
-                                     '|         |         |         |\n')
-    if 'size results' in resdata:
-        gparam['readme_newf'].writelines(f'| {name:27} ' +
-                                         f'| {clk_rate:4} ' +
-                                         f'| Size      ' +
-                                         f'| {size["geomean"]:7.2f} ' +
-                                         f'| {size["lo"]:7.2f} ' +
-                                         f'| {size["hi"]:7.2f} |\n')
-    else:
-        gparam['readme_newf'].writelines(f'| {name:27} ' +
-                                         f'| {clk_rate:4} ' +
-                                         f'| Size      ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a |\n')
-
-    if 'speed results' in resdata:
-        gparam['readme_newf'].writelines(f'|                             ' +
-                                         f'|      ' +
-                                         f'| Speed     ' +
-                                         f'| {speed["geomean"]:7.2f} ' +
-                                         f'| {speed["lo"]:7.2f} ' +
-                                         f'| {speed["hi"]:7.2f} |\n')
-        gparam['readme_newf'].writelines(f'|                             ' +
-                                         f'|      ' +
-                                         f'| Speed/MHz ' +
-                                         f'| {speed_rel["geomean"]:7.2f} ' +
-                                         f'| {speed_rel["lo"]:7.2f} ' +
-                                         f'| {speed_rel["hi"]:7.2f} |\n')
-    else:
-        gparam['readme_newf'].writelines(f'|                             ' +
-                                         f'|      ' +
-                                         f'| Speed     ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a |\n')
-        gparam['readme_newf'].writelines(f'|                             ' +
-                                         f'|      ' +
-                                         f'| Speed/MHz ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a ' +
-                                         f'|     n/a |\n')
-
-
-def transcribe_results():
-    """Transcribe the results from JSON to Markdown"""
-
-    # Header from README.md
-    for line in gparam['readme_oldf']:
-        gparam['readme_newf'].writelines(line)
-        if '<!-- Insert results here -->' in line:
-            break
-
-    # Table of data
-    gparam['readme_newf'].writelines('\n')
-    gparam['readme_newf'].writelines('| Benchmark name              ' +
-                                     '|  MHz ' +
-                                     '| Type      ' +
-                                     '|   Score |     Low |    High |\n')
-    gparam['readme_newf'].writelines('| --------------------------- ' +
-                                     '| ----:' +
-                                     '|:---------:' +
-                                     '| -------:| -------:| -------:|\n')
-
-    allres = {}
-    for resf in gparam['resfiles']:
-        absf = os.path.join(gparam['resdir'], resf + '.json')
-        with open(absf) as fileh:
-            try:
-                resdata = loads(fileh.read())
-                log.info(resdata['name'])
-                output_markdown_line(resdata)
-            except JSONDecodeError as jex:
-                log.warning(f'Warning: JSON results data error in {resf} '
-                             f'at line {jex.lineno}, column {jex.colno}: '
-                             f'{jex.msg}')
-
-    # Footer from README.md
-    gparam['readme_newf'].writelines('\n')
-
-    for line in gparam['readme_oldf']:
-        if '<!-- Results end here -->' in line:
-            gparam['readme_newf'].writelines(line)
-            break
-
-    for line in gparam['readme_oldf']:
-        gparam['readme_newf'].writelines(line)
+# Local packages
+import embres
 
 
 def main():
-    """Main program to drive collating of benchmarks."""
-    # Establish the root directory of the repository, since we know this file is
-    # in that directory.
-    gparam['rootdir'] = os.path.abspath(os.path.dirname(__file__))
+    """
+    Main program to drive collating of benchmarks.
+    """
+    # Parse the arguments, set up logging and then validate the arguments
+    rootdir = os.path.abspath(os.path.dirname(__file__))
+    args = embres.Args(rootdir)
+    log = embres.Logger(args.abslogdir(), 'results')
+    arglist = args.all_args(log)
+    args.log_args(log)
 
-    # Parse arguments using standard technology
-    parser = build_parser()
-    args = parser.parse_args()
+    # Read all the data
+    reslist = embres.ResultSet(
+        rootdir, log, arglist['absresdir'], arglist['resfiles']
+    )
 
-    # Establish logging, using "build" as the log file prefix.
-    setup_logging(args.logdir, 'build')
-    log_args(args)
+    # Create the new readme
+    readme = embres.Readme(
+        arglist['readme_hdr'],
+        arglist['readme'],
+        arglist['absdetailsdir'],
+        arglist['detailsdir']
+    )
 
-    # Check args are OK (have to have logging directory set up first)
-    validate_args(args)
-
-    # Transcribe JSON into Markdown summary
-    transcribe_results()
-
-
-# Make sure we have new enough python
-def check_python_version(major, minor):
-    """Check the python version is at least {major}.{minor}."""
-    if ((sys.version_info[0] < major)
-            or ((sys.version_info[0] == major)
-                and (sys.version_info[1] < minor))):
-        log.error(f'ERROR: Requires Python {major}.{minor} or later')
+    # Create all the details files
+    if reslist:
+        readme.write_all_details(reslist)
+    else:
+        log.error('ERROR: No results found')
         sys.exit(1)
+
+    # Header for the main README
+    readme.write_header()
+
+    # Results sorted by speed (large is good)
+    reslist.sort(
+        key=lambda rec: rec.scores()['Speed'].geomean(), reverse=True
+    )
+    readme.write_table('Results sorted by Embench speed score', reslist)
+
+    # Results sorted by speed/MHz (large is good)
+    reslist.sort(
+        key=lambda rec: rec.scores()['Speed/MHz'].geomean(), reverse=True
+    )
+    readme.write_table('Results sorted by Embench speed score/MHz', reslist)
+
+    # Results sorted by size (small is good)
+    reslist.sort(key=lambda rec: rec.scores()['Size'].geomean(), reverse=False)
+    readme.write_table('Results sorted by Embench size score', reslist)
+
+    # Per architecture results sorted by speed (large is good)
+    reslist.sort(key=lambda rec: rec.scores()['Speed'].geomean(), reverse=True)
+    reslist.sort(key=lambda rec: rec.arch(), reverse=False)
+    readme.write_table(
+        'Per architecture results sorted by Embench speed score', reslist
+    )
+
+    # Per architecture results sorted by speed/MHz (large is good)
+    reslist.sort(
+        key=lambda rec: rec.scores()['Speed/MHz'].geomean(), reverse=True
+    )
+    reslist.sort(key=lambda rec: rec.arch(), reverse=False)
+    readme.write_table(
+        'Per architecture results sorted by Embench speed score/MHz', reslist
+    )
+
+    # Per architecture results sorted by size (small is good)
+    reslist.sort(key=lambda rec: rec.scores()['Size'].geomean(), reverse=False)
+    reslist.sort(key=lambda rec: rec.arch(), reverse=False)
+    readme.write_table(
+        'Per achitecture results sorted by Embench size score', reslist
+    )
 
 
 # Make sure we have new enough Python and only run if this is the main package
-
-check_python_version(3, 6)
+embres.check_python_version(3, 6)
 if __name__ == '__main__':
     sys.exit(main())

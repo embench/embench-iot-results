@@ -1,0 +1,23 @@
+== About the Embench&#x2122; results repository ==
+
+This is a repository to hold results of running Embench IoT class benchmarks
+
+=== Status ===
+
+This repository currently only holds Embench 0.5 results.
+
+=== Submitting your own results ===
+
+You may submit pull requests with your own data.  Regenerate the table in this
+readme by running
+
+ make results
+
+=== How results are computed ===
+
+The score for each benchmark is the geometric mean of the individual benchmark
+results relative to the baseline measurement for each benchmark. The range is
+from one geometric standard deviation below to one geometric standard
+deviation above.
+
+== Results ==

@@ -1,10 +1,6 @@
-# Ignore old and new README files
-README.md.old
-README-new.md
-# Ignore generated PDF and HTML files
-README.pdf
-README.html
 # Editor backup files
 *~
 # Logs
 logs/
+# Python cache
+__pycache__/

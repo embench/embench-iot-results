@@ -1,0 +1,148 @@
+{ "description" : "RI5CY RV32IMC GCC 9.2 -Os",
+  "Embench version" : "0.5",
+  "architecture family" : "RV32",
+  "date/time" : "2020-02-27 12:15:00+01:00",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 1,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "RV32IMFC",
+    "address size (bits)" : 32,
+    "processor name" : "PULP RI5CY",
+    "processor version" : "GitHub commit 300762a",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 64,
+    "data memory size (kB)" : 64,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler version" : "gcc 9.2.0",
+      "compiler configuration" : "--target=riscv32-unknown-elf --disable-shared --enable-static --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-xmlto=no --with-fop=no --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --enable-target-optspace --disable-libsanitizer --disable-tls --disable-libmudflap --disable-threads --disable-libquadmath --disable-libgomp --without-isl --without-cloog --disable-decimal-float --enable-languages=c --with-newlib --disable-largefile --enable-plugins --disable-nls --enable-checking=yes --with-arch=rv32imc --with-abi=ilp32",
+      "linker version" : "GNU binutils ld 2.33.1",
+      "linker configuration" : "--target=riscv32-unknown-elf --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-fop=no --disable-multilib --enable-plugins --enable-poison-system-directories --disable-tls --disable-sim",
+      "C library version" : "newlib 3.3.0",
+      "C library configuration" : "--target=riscv32-unknown-elf --disable-newlib-fvwrite-in-streamio --disable-newlib-fseek-optimization --enable-newlib-nano-malloc --disable-newlib-unbuf-stream-opt --enable-target-optspace --enable-newlib-reent-small --disable-newlib-wide-orient --disable-newlib-io-float --enable-newlib-nano-formatted-io --enable-lite-exit --disable-newlib-supplied-syscalls CFLAGS_FOR_TARGET=-DHAVE_GNU_LD -DPREFER_SIZE_OVER_SPEED=1 -Os --with-arch=rv32imc --with-abi=ilp32"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-Os",
+	"-march=rv32imc",
+	"-mabi=ilp32",
+	"-ffunction-sections",
+	"-fdata-sections",
+	"-msave-restore"
+      ],
+      "linker" :
+      [ "-march=rv32imc",
+	"-mabi=ilp32",
+	"-Wl,-gc-sections"
+      ]
+    }
+  },
+  "sections in size results" :
+  [ "text"
+  ],
+  "absolute size results" :
+  { "detailed results" :
+    { "aha-mont64" : 1038,
+      "crc32" : 226,
+      "cubic" : 2418,
+      "edn" : 1430,
+      "huffbench" : 1650,
+      "matmult-int" : 418,
+      "minver" : 1060,
+      "nbody" : 824,
+      "nettle-aes" : 2716,
+      "nettle-sha256" : 5526,
+      "nsichneu" : 15228,
+      "picojpeg" : 7792,
+      "qrduino" : 6020,
+      "sglib-combined" : 2330,
+      "slre" : 2426,
+      "st" : 856,
+      "statemate" : 3696,
+      "ud" : 732,
+      "wikisort" : 4142
+    }
+  },
+  "relative size results" :
+  { "detailed results" :
+    { "aha-mont64" : 0.97,
+      "crc32" : 0.80,
+      "cubic" : 1.53,
+      "edn" : 1.08,
+      "huffbench" : 1.33,
+      "matmult-int" : 0.85,
+      "minver" : 0.91,
+      "nbody" : 0.87,
+      "nettle-aes" : 1.26,
+      "nettle-sha256" : 1.63,
+      "nsichneu" : 1.27,
+      "picojpeg" : 1.12,
+      "qrduino" : 1.04,
+      "sglib-combined" : 1.03,
+      "slre" : 1.10,
+      "st" : 0.86,
+      "statemate" : 0.82,
+      "ud" : 1.02,
+      "wikisort" : 0.96
+    },
+    "geometric mean" : 1.05,
+    "geometric standard deviation" : 1.22
+  },
+  "absolute speed results" :
+  { "detailed results" :
+    { "aha-mont64" : 5378,
+      "crc32" : 4705,
+      "cubic" : 8288,
+      "edn" : 4354,
+      "huffbench" : 3682,
+      "matmult-int" : 3934,
+      "minver" : 6871,
+      "nbody" : 3751,
+      "nettle-aes" : 4720,
+      "nettle-sha256" : 4853,
+      "nsichneu" : 3629,
+      "picojpeg" : 4435,
+      "qrduino" : 3537,
+      "sglib-combined" : 3546,
+      "slre" : 3345,
+      "st" : 4942,
+      "statemate" : 2090,
+      "ud" : 4998,
+      "wikisort" : 2111
+    }
+  },
+  "relative speed results" :
+  { "detailed results" :
+    { "aha-mont64" : 0.74,
+      "crc32" : 0.85,
+      "cubic" : 0.47,
+      "edn" : 0.92,
+      "huffbench" : 1.12,
+      "matmult-int" : 1.01,
+      "minver" : 0.58,
+      "nbody" : 0.75,
+      "nettle-aes" : 0.85,
+      "nettle-sha256" : 0.82,
+      "nsichneu" : 1.10,
+      "picojpeg" : 0.91,
+      "qrduino" : 1.20,
+      "sglib-combined" : 1.12,
+      "slre" : 1.20,
+      "st" : 0.83,
+      "statemate" : 1.91,
+      "ud" : 0.80,
+      "wikisort" : 1.32
+    },
+    "geometric mean" : 0.93,
+    "geometric standard deviation" : 1.35
+  }
+}
