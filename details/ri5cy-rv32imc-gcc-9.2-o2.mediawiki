@@ -1,0 +1,226 @@
+== RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections ==
+
+{| class="wikitable sortable"
+|- align="left"
+| Embench version || 0.5
+|- align="left"
+| architecture family || RV32
+|- align="left"
+| date/time || 2020-04-24 10:37:00+01:00
+|}
+
+== Platform information ==
+
+{| class="wikitable sortable"
+|- align="left"
+| nominal clock rate (MHz) || 1
+|- align="left"
+| max clock rate (MHz) || n/a
+|- align="left"
+| isa || RV32IMC
+|- align="left"
+| address size (bits) || 32
+|- align="left"
+| processor name || PULP RI5CY
+|- align="left"
+| processor version || GitHub commit b9e277c
+|- align="left"
+| number of enabled cores || 1
+|- align="left"
+| hardware threads per core || 1
+|- align="left"
+| caches || n/a
+|- align="left"
+| thermal design power || n/a
+|- align="left"
+| program memory size (kB) || 64
+|- align="left"
+| data memory size (kB) || 64
+|- align="left"
+| storage || n/a
+|- align="left"
+| external memory || n/a
+|- align="left"
+| external buses || n/a
+|- align="left"
+| misc accellerators and I/O devices || n/a
+|- align="left"
+| OS and version || Bare metal
+|}
+
+== Tool chain information ==
+
+=== Tool chain versions ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler version || gcc 9.2.0
+|- align="left"
+| compiler configuration || --target=riscv32-unknown-elf --disable-shared --enable-static --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-xmlto=no --with-fop=no --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --enable-target-optspace --disable-libsanitizer --disable-tls --disable-libmudflap --disable-threads --disable-libquadmath --disable-libgomp --without-isl --without-cloog --disable-decimal-float --enable-languages=c --with-newlib --disable-largefile --enable-plugins --disable-nls --enable-checking=yes --with-arch=rv32imc --with-abi=ilp32
+|- align="left"
+| linker version || GNU binutils ld 2.33.1
+|- align="left"
+| linker configuration || --target=riscv32-unknown-elf --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-fop=no --disable-multilib --enable-plugins --enable-poison-system-directories --disable-tls --disable-sim
+|- align="left"
+| C library version || newlib 3.3.0
+|- align="left"
+| C library configuration || --target=riscv32-unknown-elf --disable-newlib-fvwrite-in-streamio --disable-newlib-fseek-optimization --enable-newlib-nano-malloc --disable-newlib-unbuf-stream-opt --enable-target-optspace --enable-newlib-reent-small --disable-newlib-wide-orient --disable-newlib-io-float --enable-newlib-nano-formatted-io --enable-lite-exit --disable-newlib-supplied-syscalls CFLAGS_FOR_TARGET= -DPREFER_SIZE_OVER_SPEED=1 -Os --with-arch=rv32imc --with-abi=ilp32
+|}
+
+=== Tool chain flags used in benchmarking ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler || -O2 -march=rv32imc -mabi=ilp32 -ffunction-sections
+|- align="left"
+| linker || -Wl,-gc-sections
+|}
+
+=== Other tool chain information ===
+
+{| class="wikitable sortable"
+|- align="left"
+| libs || {'user libs': ['-lm']}
+|}
+
+== Detailed Embench results ==
+
+Section types included in size data: text
+{| class="wikitable sortable"
+! align="left"  |
+! colspan="2" align="center" | Size
+! colspan="2" align="center" | Speed/MHz
+|- align="left"
+! align="left" | Benchmark
+! align="right"  | Absolute
+! align="right" | Relative
+! align="right"  | Absolute
+! align="right" | Relative
+|- align="left"
+| aha-mont64
+| align="right" | 1,666
+| align="right" | 1.55
+| align="right" | 5,351
+| align="right" | 0.75
+|- align="left"
+| crc32
+| align="right" | 230
+| align="right" | 0.81
+| align="right" | 4,531
+| align="right" | 0.88
+|- align="left"
+| cubic
+| align="right" | 2,630
+| align="right" | 1.66
+| align="right" | 8,299
+| align="right" | 0.47
+|- align="left"
+| edn
+| align="right" | 1,628
+| align="right" | 1.23
+| align="right" | 4,284
+| align="right" | 0.94
+|- align="left"
+| huffbench
+| align="right" | 1,818
+| align="right" | 1.46
+| align="right" | 3,682
+| align="right" | 1.12
+|- align="left"
+| matmult-int
+| align="right" | 524
+| align="right" | 1.07
+| align="right" | 3,934
+| align="right" | 1.01
+|- align="left"
+| minver
+| align="right" | 1,454
+| align="right" | 1.24
+| align="right" | 6,919
+| align="right" | 0.58
+|- align="left"
+| nbody
+| align="right" | 932
+| align="right" | 0.98
+| align="right" | 3,751
+| align="right" | 0.75
+|- align="left"
+| nettle-aes
+| align="right" | 3,280
+| align="right" | 1.53
+| align="right" | 4,720
+| align="right" | 0.85
+|- align="left"
+| nettle-sha256
+| align="right" | 5,842
+| align="right" | 1.72
+| align="right" | 4,854
+| align="right" | 0.82
+|- align="left"
+| nsichneu
+| align="right" | 17,064
+| align="right" | 1.43
+| align="right" | 3,629
+| align="right" | 1.10
+|- align="left"
+| picojpeg
+| align="right" | 11,292
+| align="right" | 1.62
+| align="right" | 4,349
+| align="right" | 0.93
+|- align="left"
+| qrduino
+| align="right" | 8,394
+| align="right" | 1.44
+| align="right" | 3,579
+| align="right" | 1.19
+|- align="left"
+| sglib-combined
+| align="right" | 2,700
+| align="right" | 1.19
+| align="right" | 3,529
+| align="right" | 1.13
+|- align="left"
+| slre
+| align="right" | 2,922
+| align="right" | 1.33
+| align="right" | 3,345
+| align="right" | 1.20
+|- align="left"
+| st
+| align="right" | 1,080
+| align="right" | 1.08
+| align="right" | 4,942
+| align="right" | 0.83
+|- align="left"
+| statemate
+| align="right" | 3,912
+| align="right" | 0.87
+| align="right" | 2,090
+| align="right" | 1.91
+|- align="left"
+| ud
+| align="right" | 900
+| align="right" | 1.25
+| align="right" | 4,998
+| align="right" | 0.80
+|- align="left"
+| wikisort
+| align="right" | 5,032
+| align="right" | 1.17
+| align="right" | 2,109
+| align="right" | 1.32
+|- align="left"
+! Geometric mean
+!
+! align="right" | 1.27
+!
+! align="right" | 0.93
+|- align="left"
+! Geometric standard deviation
+!
+! align="right" | 1.23
+!
+! align="right" | 1.35
+|}
+

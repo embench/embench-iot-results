@@ -11,14 +11,10 @@
 # Update the README file
 .PHONY: results
 results:
-	./process_results.py
-	@mv README.md README.md.old
-	@mv README-new.md README.md
+	./process_results.py --resdir results
 
 # Get rid of old results
 .PHONY: clean
 clean:
-	$(RM) README.md.old
-	$(RM) README-new.md
-	$(RM) README.pdf
-	$(RM) README.html
+	$(RM) README.mediawiki
+	$(RM) details/*.mediawiki

@@ -1,0 +1,226 @@
+== CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections ==
+
+{| class="wikitable sortable"
+|- align="left"
+| Embench version || 0.5
+|- align="left"
+| architecture family || Arm
+|- align="left"
+| date/time || 2020-04-24 11:19:00+01:00
+|}
+
+== Platform information ==
+
+{| class="wikitable sortable"
+|- align="left"
+| nominal clock rate (MHz) || 16
+|- align="left"
+| max clock rate (MHz) || n/a
+|- align="left"
+| isa || THUMB
+|- align="left"
+| address size (bits) || 32
+|- align="left"
+| processor name || Cortex M4
+|- align="left"
+| processor version || STM32F407VGT6 microcontroller
+|- align="left"
+| number of enabled cores || 1
+|- align="left"
+| hardware threads per core || 1
+|- align="left"
+| caches || n/a
+|- align="left"
+| thermal design power || n/a
+|- align="left"
+| program memory size (kB) || 1024
+|- align="left"
+| data memory size (kB) || 192
+|- align="left"
+| storage || n/a
+|- align="left"
+| external memory || n/a
+|- align="left"
+| external buses || n/a
+|- align="left"
+| misc accellerators and I/O devices || n/a
+|- align="left"
+| OS and version || Bare metal
+|}
+
+== Tool chain information ==
+
+=== Tool chain versions ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler version || gcc 9.2.0
+|- align="left"
+| compiler configuration || --target=arm-none-eabi --disable-shared --enable-static --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-xmlto=no --with-fop=no --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --enable-target-optspace --disable-libsanitizer --disable-tls --disable-libmudflap --disable-threads --disable-libquadmath --disable-libgomp --without-isl --without-cloog --disable-decimal-float --enable-languages=c --with-newlib --disable-largefile --enable-plugins --disable-nls --enable-checking=yes  --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft
+|- align="left"
+| linker version || GNU binutils ld 2.33.1
+|- align="left"
+| linker configuration || --target=arm-none-eabi --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-fop=no --disable-multilib --enable-plugins --enable-poison-system-directories --disable-tls --disable-sim
+|- align="left"
+| C library version || newlib 3.3.0
+|- align="left"
+| C library configuration || --target=arm-none-eabi --disable-newlib-fvwrite-in-streamio --disable-newlib-fseek-optimization --enable-newlib-nano-malloc --disable-newlib-unbuf-stream-opt --enable-target-optspace --enable-newlib-reent-small --disable-newlib-wide-orient --disable-newlib-io-float --enable-newlib-nano-formatted-io --enable-lite-exit --disable-newlib-supplied-syscalls CFLAGS_FOR_TARGET= -DHAVE_GNU_LD -DPREFER_SIZE_OVER_SPEED=1 -Os --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft
+|}
+
+=== Tool chain flags used in benchmarking ===
+
+{| class="wikitable sortable"
+|- align="left"
+| compiler || -O2 -march=armv7-m -mcpu=cortex-m4 -mfloat-abi=soft -mthumb -ffunction-sections
+|- align="left"
+| linker || -Wl,-gc-sections -specs=nosys.specs
+|}
+
+=== Other tool chain information ===
+
+{| class="wikitable sortable"
+|- align="left"
+| libs || {'user libs': ['-lm']}
+|}
+
+== Detailed Embench results ==
+
+Section types included in size data: text
+{| class="wikitable sortable"
+! align="left"  |
+! colspan="2" align="center" | Size
+! colspan="2" align="center" | Speed/MHz
+|- align="left"
+! align="left" | Benchmark
+! align="right"  | Absolute
+! align="right" | Relative
+! align="right"  | Absolute
+! align="right" | Relative
+|- align="left"
+| aha-mont64
+| align="right" | 1,592
+| align="right" | 1.49
+| align="right" | 4,004
+| align="right" | 1.00
+|- align="left"
+| crc32
+| align="right" | 296
+| align="right" | 1.04
+| align="right" | 4,010
+| align="right" | 1.00
+|- align="left"
+| cubic
+| align="right" | 1,624
+| align="right" | 1.03
+| align="right" | 3,931
+| align="right" | 1.00
+|- align="left"
+| edn
+| align="right" | 1,424
+| align="right" | 1.08
+| align="right" | 4,010
+| align="right" | 1.00
+|- align="left"
+| huffbench
+| align="right" | 1,488
+| align="right" | 1.20
+| align="right" | 4,120
+| align="right" | 1.00
+|- align="left"
+| matmult-int
+| align="right" | 516
+| align="right" | 1.05
+| align="right" | 3,985
+| align="right" | 1.00
+|- align="left"
+| minver
+| align="right" | 1,284
+| align="right" | 1.10
+| align="right" | 3,998
+| align="right" | 1.00
+|- align="left"
+| nbody
+| align="right" | 960
+| align="right" | 1.01
+| align="right" | 2,808
+| align="right" | 1.00
+|- align="left"
+| nettle-aes
+| align="right" | 2,508
+| align="right" | 1.17
+| align="right" | 4,026
+| align="right" | 1.00
+|- align="left"
+| nettle-sha256
+| align="right" | 3,612
+| align="right" | 1.06
+| align="right" | 3,997
+| align="right" | 1.00
+|- align="left"
+| nsichneu
+| align="right" | 13,476
+| align="right" | 1.13
+| align="right" | 4,001
+| align="right" | 1.00
+|- align="left"
+| picojpeg
+| align="right" | 9,744
+| align="right" | 1.40
+| align="right" | 4,030
+| align="right" | 1.00
+|- align="left"
+| qrduino
+| align="right" | 7,692
+| align="right" | 1.32
+| align="right" | 4,253
+| align="right" | 1.00
+|- align="left"
+| sglib-combined
+| align="right" | 2,468
+| align="right" | 1.09
+| align="right" | 3,981
+| align="right" | 1.00
+|- align="left"
+| slre
+| align="right" | 2,536
+| align="right" | 1.15
+| align="right" | 4,010
+| align="right" | 1.00
+|- align="left"
+| st
+| align="right" | 1,116
+| align="right" | 1.12
+| align="right" | 4,080
+| align="right" | 1.00
+|- align="left"
+| statemate
+| align="right" | 5,028
+| align="right" | 1.12
+| align="right" | 4,001
+| align="right" | 1.00
+|- align="left"
+| ud
+| align="right" | 884
+| align="right" | 1.23
+| align="right" | 3,999
+| align="right" | 1.00
+|- align="left"
+| wikisort
+| align="right" | 4,964
+| align="right" | 1.16
+| align="right" | 2,779
+| align="right" | 1.00
+|- align="left"
+! Geometric mean
+!
+! align="right" | 1.15
+!
+! align="right" | 1.00
+|- align="left"
+! Geometric standard deviation
+!
+! align="right" | 1.11
+!
+! align="right" | 1.00
+|}
+

@@ -1,0 +1,156 @@
+{ "description" : "CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections",
+  "Embench version" : "0.5",
+  "architecture family" : "Arm",
+  "date/time" : "2020-04-24 11:27:00+01:00",
+  "platform information" :
+  { "nominal clock rate (MHz)" : 16,
+    "max clock rate (MHz)" : "n/a",
+    "isa" : "THUMB",
+    "address size (bits)" : 32,
+    "processor name" : "Cortex M4",
+    "processor version" : "STM32F407VGT6 microcontroller",
+    "number of enabled cores" : 1,
+    "hardware threads per core" : 1,
+    "caches" : "n/a",
+    "thermal design power" : "n/a",
+    "program memory size (kB)" : 1024,
+    "data memory size (kB)" : 192,
+    "storage" : "n/a",
+    "external memory" : "n/a",
+    "external buses" : "n/a",
+    "misc accellerators and I/O devices" : "n/a",
+    "OS and version" : "Bare metal"
+  },
+  "tool chain information" :
+  { "tool chain version" :
+    { "compiler version" : "gcc 9.2.0",
+      "compiler configuration" : "--target=arm-none-eabi --disable-shared --enable-static --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-xmlto=no --with-fop=no --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --enable-target-optspace --disable-libsanitizer --disable-tls --disable-libmudflap --disable-threads --disable-libquadmath --disable-libgomp --without-isl --without-cloog --disable-decimal-float --enable-languages=c --with-newlib --disable-largefile --enable-plugins --disable-nls --enable-checking=yes  --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft",
+      "linker version" : "GNU binutils ld 2.33.1",
+      "linker configuration" : "--target=arm-none-eabi --disable-gtk-doc --disable-gtk-doc-html --disable-doc --disable-docs --disable-documentation --with-fop=no --disable-multilib --enable-plugins --enable-poison-system-directories --disable-tls --disable-sim",
+      "C library version" : "newlib 3.3.0",
+      "C library configuration" : "--target=arm-none-eabi --disable-newlib-fvwrite-in-streamio --disable-newlib-fseek-optimization --enable-newlib-nano-malloc --disable-newlib-unbuf-stream-opt --enable-target-optspace --enable-newlib-reent-small --disable-newlib-wide-orient --disable-newlib-io-float --enable-newlib-nano-formatted-io --enable-lite-exit --disable-newlib-supplied-syscalls CFLAGS_FOR_TARGET= -DHAVE_GNU_LD -DPREFER_SIZE_OVER_SPEED=1 -Os --with-cpu=cortex-m4 --with-mode=thumb --with-float=soft"
+    },
+    "tool chain flags" :
+    { "compiler" :
+      [ "-Os",
+	"-march=armv7-m",
+	"-mcpu=cortex-m4",
+	"-mfloat-abi=soft",
+	"-mthumb",
+	"-ffunction-sections"
+      ],
+      "linker" :
+      [ "-Wl,-gc-sections",
+	"-nostartfiles",
+	"-nostdlib"
+      ]
+    },
+    "libs" :
+    { "dummy libs" :
+      [ "crt0",
+	"libc",
+	"libgcc",
+	"libm"
+      ]
+    }
+  },
+  "sections in size results" :
+  [ "text"
+  ],
+"absolute size results" :
+  { "detailed results" :
+    { "aha-mont64" : 1072,
+      "crc32" : 284,
+      "cubic" : 1584,
+      "edn" : 1324,
+      "huffbench" : 1242,
+      "matmult-int" : 492,
+      "minver" : 1168,
+      "nbody" : 950,
+      "nettle-aes" : 2148,
+      "nettle-sha256" : 3396,
+      "nsichneu" : 11968,
+      "picojpeg" : 6964,
+      "qrduino" : 5814,
+      "sglib-combined" : 2272,
+      "slre" : 2200,
+      "st" : 1000,
+      "statemate" : 4484,
+      "ud" : 720,
+      "wikisort" : 4296
+    }
+  },
+  "relative size results" :
+  { "detailed results" :
+    { "aha-mont64" : 1.00,
+      "crc32" : 1.00,
+      "cubic" : 1.00,
+      "edn" : 1.00,
+      "huffbench" : 1.00,
+      "matmult-int" : 1.00,
+      "minver" : 1.00,
+      "nbody" : 1.00,
+      "nettle-aes" : 1.00,
+      "nettle-sha256" : 1.00,
+      "nsichneu" : 1.00,
+      "picojpeg" : 1.00,
+      "qrduino" : 1.00,
+      "sglib-combined" : 1.00,
+      "slre" : 1.00,
+      "st" : 1.00,
+      "statemate" : 1.00,
+      "ud" : 1.00,
+      "wikisort" : 1.00
+    },
+    "geometric mean" : 1.00,
+    "geometric standard deviation" : 1.00
+  },
+  "absolute speed results" :
+  { "detailed results" :
+    { "aha-mont64" : 4361,
+      "crc32" : 4010,
+      "cubic" : 3932,
+      "edn" : 4373,
+      "huffbench" : 4844,
+      "matmult-int" : 5419,
+      "minver" : 4360,
+      "nbody" : 2810,
+      "nettle-aes" : 6753,
+      "nettle-sha256" : 3793,
+      "nsichneu" : 3699,
+      "picojpeg" : 5111,
+      "qrduino" : 4505,
+      "sglib-combined" : 4650,
+      "slre" : 4910,
+      "st" : 4111,
+      "statemate" : 4044,
+      "ud" : 5192,
+      "wikisort" : 2785
+    }
+  },
+  "relative speed results" :
+  { "detailed results" :
+    { "aha-mont64" : 0.92,
+      "crc32" : 1.00,
+      "cubic" : 1.00,
+      "edn" : 0.92,
+      "huffbench" : 0.85,
+      "matmult-int" : 0.74,
+      "minver" : 0.92,
+      "nbody" : 1.00,
+      "nettle-aes" : 0.60,
+      "nettle-sha256" : 1.05,
+      "nsichneu" : 1.08,
+      "picojpeg" : 0.79,
+      "qrduino" : 0.94,
+      "sglib-combined" : 0.86,
+      "slre" : 0.82,
+      "st" : 0.99,
+      "statemate" : 0.99,
+      "ud" : 0.77,
+      "wikisort" : 1.00
+    },
+    "geometric mean" : 0.90,
+    "geometric standard deviation" : 1.15
+  }
+}

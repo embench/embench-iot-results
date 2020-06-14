@@ -1,0 +1,473 @@
+== About the Embench&#x2122; results repository ==
+
+This is a repository to hold results of running Embench IoT class benchmarks
+
+=== Status ===
+
+This repository currently only holds Embench 0.5 results.
+
+=== Submitting your own results ===
+
+You may submit pull requests with your own data.  Regenerate the table in this
+readme by running
+
+ make results
+
+=== How results are computed ===
+
+The score for each benchmark is the geometric mean of the individual benchmark
+results relative to the baseline measurement for each benchmark. The range is
+from one geometric standard deviation below to one geometric standard
+deviation above.
+
+== Results ==
+
+=== Results sorted by Embench speed score ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|}
+
+=== Results sorted by Embench speed score/MHz ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|}
+
+=== Results sorted by Embench size score ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|}
+
+=== Per architecture results sorted by Embench speed score ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|}
+
+=== Per architecture results sorted by Embench speed score/MHz ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|}
+
+=== Per achitecture results sorted by Embench size score ===
+
+{| class="wikitable sortable"
+! align="left"  | Architecture
+! align="left"  | Benchmark description
+! align="right" | MHz
+! align="left"  | Type
+! align="right" | Score
+! align="center" | Range
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-os.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -Os -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|  Speed
+|  align="right" | 14.40
+|  align="center" | 12.52- 16.56
+|-
+|  Speed/MHz
+|  align="right" | 0.90
+|  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | Arm
+|  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 16
+|  Size
+|  align="right" | 1.15
+|  align="center" | 1.04- 1.28
+|-
+|  Speed
+|  align="right" | 16.00
+|  align="center" | 16.00- 16.00
+|-
+|  Speed/MHz
+|  align="right" | 1.00
+|  align="center" | 1.00- 1.00
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-os.mediawiki|RI5CY RV32IMC GCC 9.2 -Os]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.05
+|  align="center" | 0.86- 1.28
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/ri5cy-rv32imc-gcc-9.2-o2.mediawiki|RI5CY RV32IMC GCC 9.2 -O2 -ffunction-sections]]
+|  align="right" rowspan="3" | 1
+|  Size
+|  align="right" | 1.27
+|  align="center" | 1.03- 1.56
+|-
+|  Speed
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|  Speed/MHz
+|  align="right" | 0.93
+|  align="center" | 0.69- 1.26
+|-
+|}
