@@ -32,6 +32,22 @@ deviation above.
 ! align="right" | Score
 ! align="center" | Range
 |- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
+|-
+|- align="left"
 |  rowspan="3" | Arm
 |  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
 |  align="right" rowspan="3" | 16
@@ -106,6 +122,22 @@ deviation above.
 ! align="left"  | Type
 ! align="right" | Score
 ! align="center" | Range
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
+|-
 |- align="left"
 |  rowspan="3" | Arm
 |  rowspan="3" | [[details/cortexm4-armv7m-gcc-9.2-o2.mediawiki|CORTEX-M4 ARMV7-M GCC 9.2 -O2 -ffunction-sections]]
@@ -245,6 +277,22 @@ deviation above.
 |  align="right" | 0.93
 |  align="center" | 0.69- 1.26
 |-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
+|-
 |}
 
 === Per architecture results sorted by Embench speed score ===
@@ -287,6 +335,22 @@ deviation above.
 |  Speed/MHz
 |  align="right" | 0.90
 |  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
 |-
 |- align="left"
 |  rowspan="3" | RV32
@@ -362,6 +426,22 @@ deviation above.
 |  Speed/MHz
 |  align="right" | 0.90
 |  align="center" | 0.78- 1.03
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
 |-
 |- align="left"
 |  rowspan="3" | RV32
@@ -469,5 +549,21 @@ deviation above.
 |  Speed/MHz
 |  align="right" | 0.93
 |  align="center" | 0.69- 1.26
+|-
+|- align="left"
+|  rowspan="3" | RV32
+|  rowspan="3" | [[details/eh2-rv32imc-gcc.mediawiki|EH2 GCC 10.2]]
+|  align="right" rowspan="3" | 50
+|  Size
+|  align="right" | 2.51
+|  align="center" | 1.17- 5.40
+|-
+|  Speed
+|  align="right" | 66.50
+|  align="center" | 41.30- 107.07
+|-
+|  Speed/MHz
+|  align="right" | 1.33
+|  align="center" | 0.83- 2.14
 |-
 |}
