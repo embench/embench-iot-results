@@ -33,9 +33,9 @@
 |- align="left"
 | thermal design power || n/a
 |- align="left"
-| program memory size (kB) || 64
+| program memory size (kB) || 64000
 |- align="left"
-| data memory size (kB) || 64
+| data memory size (kB) || 64000
 |- align="left"
 | storage || n/a
 |- align="left"
