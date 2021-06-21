@@ -29,7 +29,7 @@
 |- align="left"
 | hardware threads per core || 2
 |- align="left"
-| caches || n/a
+| caches || icache 8K/4 ways
 |- align="left"
 | thermal design power || n/a
 |- align="left"

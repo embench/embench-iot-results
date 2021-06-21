@@ -11,7 +11,7 @@
     "processor version" : "EH2 revision 1.2 (PRM March 28,2020)",
     "number of enabled cores" : 1,
     "hardware threads per core" : 2,
-    "caches" : "n/a",
+    "caches" : "icache 8K/4 ways",
     "thermal design power" : "n/a",
     "program memory size (kB)" : 64000,
     "data memory size (kB)" : 64000,
